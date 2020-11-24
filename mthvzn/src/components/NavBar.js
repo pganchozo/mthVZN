@@ -6,8 +6,16 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 const styles = {
+  navBar: {
+    backgroundColor: '#9A1750',
+  },
+  homeButton: {
+    marginRight: 100,
+    padding: '10px 14px',
+    color: 'white',
+  },
   menuButton: {
-    padding: 20,
+    padding: '10px 14px',
     color: 'white',
   },
 }
@@ -19,14 +27,14 @@ class NavBar extends React.Component {
 
     return(
       <Container fixed>
-        <AppBar>
+        <AppBar className={classes.navBar}>
           <Grid
           container
           direction="row"
           justify="center"
           alignItems="center"
           >
-            <Button className={classes.menuButton}>mthVzn</Button>
+            <Button className={classes.homeButton}>Home</Button>
             <Button className={classes.menuButton}>Fibonacci Sequence</Button>
             <Button className={classes.menuButton}>Pascal's Triangle</Button>
             <Button className={classes.menuButton}>Mandelbrot Sets</Button>
