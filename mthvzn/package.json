@@ -7,10 +7,14 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
+    "bizcharts": "^4.0.16",
+    "d3": "^6.3.0",
     "react": "^17.0.1",
+    "react-d3-library": "^1.1.8",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-vis": "^1.11.7",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

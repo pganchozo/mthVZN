@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 
 const styles = {
@@ -34,10 +35,21 @@ class NavBar extends React.Component {
           justify="center"
           alignItems="center"
           >
-            <Button className={classes.homeButton}>Home</Button>
-            <Button className={classes.menuButton}>Fibonacci Sequence</Button>
-            <Button className={classes.menuButton}>Pascal's Triangle</Button>
-            <Button className={classes.menuButton}>Mandelbrot Sets</Button>
+            <Link href='/' underline='none'>
+              <Button className={classes.homeButton}>Home</Button>
+            </Link>
+
+            <Link href='/fibonacci' underline='none'>
+              <Button className={classes.menuButton}>Fibonacci Sequence</Button>
+            </Link>
+
+            <Link href='/' underline='none'>
+              <Button className={classes.menuButton}>Pascal's Triangle</Button>
+            </Link>
+
+            <Link href='/mandelbrot' underline='none'>
+              <Button className={classes.menuButton}>Mandelbrot Sets</Button>
+            </Link>
           </Grid>
         </AppBar>
       </Container>
