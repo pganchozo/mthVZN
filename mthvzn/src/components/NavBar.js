@@ -43,7 +43,7 @@ class NavBar extends React.Component {
               <Button className={classes.menuButton}>Fibonacci Sequence</Button>
             </Link>
 
-            <Link href='/' underline='none'>
+            <Link href='/pascal' underline='none'>
               <Button className={classes.menuButton}>Pascal's Triangle</Button>
             </Link>
 
