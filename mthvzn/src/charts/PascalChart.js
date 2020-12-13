@@ -8,14 +8,14 @@ import {
   Borders,
   VerticalGridLines,
   HorizontalGridLines,
-  HeatmapSeries,
+  LabelSeries,
 } from 'react-vis';
 import 'react-vis/dist/style.css';
 
 export class PascalChart extends React.Component {
   constructor(props){
     super(props);
-    this.state = {data: [{x: 0, y: 0}, {x: 0, y: 1}, {x: 1, y: 1}, {x: 0, y: 2}], slider_val: 3};
+    this.state = {data: [], slider_val: 5};
   }
 
   calcPascals = (numRows) => {
@@ -42,14 +42,21 @@ export class PascalChart extends React.Component {
     const rows = this.calcPascals(this.state.slider_val);
 
     // push base case, the "tip" of Pascal's triangle
-    var start = 0;
-    var end = 0;
-    data_points.push({x: 0, y: 0});
+    data_points.push({x: 0, y: 0, label: '1'});
+
+    var start = -1;
+    var x_pos;
 
     for(var i = 1; i < rows.length; i++) {
       for (var j = 0; j < rows[i].length; j++) {
-        if (j == 0) data_points.push({x: j+start, y: i});
-        else data_points.push({x: j+start+1, y: i});
+        if (j == 0) {
+          x_pos = start;
+          data_points.push({x: x_pos, y: i, label: `${rows[i][j]}`});
+        }
+        else {
+          x_pos += 2;
+          data_points.push({x: x_pos, y: i, label: `${rows[i][j]}`});
+        }
       }
       start--;
     }
@@ -64,7 +71,7 @@ export class PascalChart extends React.Component {
   };
 
   componentDidMount(){
-    // this.createData();
+    this.createData();
   }
 
   render(){
@@ -75,12 +82,12 @@ export class PascalChart extends React.Component {
       justify="space-evenly"
       alignItems="center"
       >
-        <XYPlot xDomain={[-5, 5]} yDomain={[-5, 5]} width={500} height={500}>
+        <XYPlot xDomain={[-5, 5]} yDomain={[0, 5]} width={500} height={500}>
           <VerticalGridLines />
           <HorizontalGridLines />
           <XAxis />
           <YAxis />
-          <HeatmapSeries
+          <LabelSeries
             animation
             className='pascals'
             radius={20}
